@@ -1,0 +1,63 @@
+.banner-container {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  background-image: url("/assets/huaynapotosi.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  border-radius: 10px;
+  left: 0;
+}
+
+h3 {
+  margin: 20px 20px 5px;
+}
+
+.file-uploader {
+  width: 102.5px;
+  height: 102.5px;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.161);
+  border-radius: 50%;
+  z-index: 1;
+  transition: background-color 1s, color 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  background-color: white;
+
+  .icon {
+    color: transparent;
+    font-size: 2em;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:hover .icon {
+    background-color: rgba(0, 0, 0, 0.787);
+    color: white !important;
+    transition: background-color 1s, color 1s;
+  }
+}
+
+.counters {
+  padding: 0 10px;
+
+  p {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    color: #ad5252;
+  }
+
+  span {
+    font-weight: bold;
+    font-size: 18px;
+    color: #0c7fa1;
+    display: block;
+    text-align: center;
+  }
+}

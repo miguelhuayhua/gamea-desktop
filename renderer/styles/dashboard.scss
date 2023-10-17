@@ -1,0 +1,41 @@
+.card-styled {
+  width: 95%;
+  margin: 10px auto;
+}
+
+p {
+  font-weight: 100 !important;
+  margin: 0 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgb(109, 109, 109);
+}
+
+.card-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em !important;
+  color: rgb(63, 63, 63);
+  font-weight: 200;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.custom-btn-dash {
+  border: none;
+  margin: 0 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-decoration: none !important;
+}
+
+.ant-card-head-title {
+  color: #1e5262 ;
+}

@@ -1,0 +1,111 @@
+h2 {
+  text-align: center;
+  font-weight: 200 !important;
+  margin: 20px 0;
+}
+
+.small-input {
+  max-width: 180px;
+}
+
+.normal-input {
+  width: 100%;
+}
+
+.titulo-form {
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  top: -10px;
+  font-weight: bold;
+  background-color: rgb(245, 245, 245);
+}
+
+.tagPlus {
+  margin-bottom: 1em;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(147, 147, 147);
+  &:hover {
+    border: 1px solid black;
+  }
+}
+
+.hijos {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+  margin: 0.5em 0.2em;
+  padding: 0.5em;
+  svg {
+    font-size: 1.5em;
+    color: black;
+  }
+}
+//efectos
+.hidden {
+  display: none !important;
+  opacity: 0;
+}
+
+//ESTILOS DE LA PARTE DEL COMPONENTE DE DETALLES
+.titulo {
+  background-color: #137799;
+  padding: 0.5em 1em;
+  width: 40%;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  font-weight: bolder;
+}
+
+.contenido {
+  padding: 0.5em 1em;
+  width: 60%;
+  font-weight: bolder;
+  border: 0.5px solid rgb(235, 235, 235);
+}
+p {
+  margin: 0 !important;
+}
+//animaciones y transiciones
+
+.ocultar {
+  display: none;
+}
+.mostrar {
+  animation: muestra 1s;
+}
+
+@keyframes muestra {
+  0% {
+    display: block;
+    scale: 0;
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.ant-progress-circle {
+  animation-name: rotar;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transition: transform 0.3s;
+}
+
+@keyframes rotar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

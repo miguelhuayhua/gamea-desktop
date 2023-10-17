@@ -1,0 +1,185 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+//botones flotantes de exportación
+.info {
+  color: rgb(134, 134, 134);
+}
+
+.float-btn {
+  right: 30px;
+  bottom: 30px;
+  width: 55px;
+  height: 55px;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-button {
+  margin: 5px;
+}
+
+b {
+  color: #167a9b !important;
+}
+
+.column-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+//estilos globales para  componentes de ant desing
+label {
+  font-weight: bold;
+  color: #186680 !important;
+}
+
+.ant-modal-title > p {
+  color: #186680;
+  font-size: 18px;
+}
+
+//SELECT AND DATE PICKER
+.ant-select-item-option,
+.ant-select-dropdown,
+.ant-picker-header {
+  background-color: #1f96be !important;
+  color: white !important;
+}
+
+.ant-picker-body {
+  padding: 0 !important;
+}
+
+.ant-picker-header button {
+  color: white !important;
+}
+
+.ant-picker-content th {
+  background-color: #1f96be !important;
+}
+.ant-picker-content {
+  width: 100% !important;
+}
+
+.ant-select-item-option-selected {
+  color: #1f96be !important;
+  background-color: white !important;
+}
+
+.ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: #dc3f4a !important;
+}
+
+.ant-select-item-option-active {
+  color: #1f96be !important;
+  background-color: rgb(243, 243, 243) !important;
+}
+
+//INPUT
+.ant-input,
+.ant-select,
+.ant-picker,
+.ant-input-number-input,
+.ant-select-selector,
+.ant-input-affix-wrapper {
+  background-color: #f5fafb !important;
+
+  &::placeholder {
+    color: gray;
+  }
+}
+
+//CARD
+.ant-card-head-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #167a9b !important;
+}
+
+//TABLE
+th {
+  background-color: #dc3f4a !important;
+  color: white !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  padding: 5px !important;
+}
+
+//SWITCH
+.ant-switch.ant-switch-checked {
+  background-color: #2cbdee;
+}
+.ant-switch {
+  width: 60px;
+}
+
+//BUTTON
+.ant-btn-primary {
+  background-color: #26a6d1;
+  font-weight: bold;
+}
+//RADIO BUTTON
+.ant-radio-checked .ant-radio-inner {
+  border-color: #dc3f4a;
+  background-color: #dc3f4a;
+}
+
+//FLOAT BUTTON
+.ant-float-btn-body {
+  background-color: #26a6d1 !important;
+  color: white !important;
+
+  .anticon {
+    color: white !important;
+  }
+}
+.ant-float-btn-icon {
+  color: white;
+}
+
+//timepicker
+.ant-picker-header {
+  display: flex;
+  padding: 0 8px;
+  color: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+  margin: 0 auto !important;
+  width: 100%;
+}
+
+//animaciones
+.to-right {
+  animation: to-right 2s;
+}
+
+@keyframes to-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.to-left {
+  animation: to-left 2s;
+}
+
+@keyframes to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
