@@ -3,6 +3,8 @@
 //botones flotantes de exportación
 .info {
   color: rgb(134, 134, 134);
+  font-size: .8em !important;
+
 }
 
 .float-btn {
@@ -28,6 +30,7 @@
 
 b {
   color: #167a9b !important;
+  font-weight: 600;
 }
 
 .column-centered {
@@ -43,7 +46,7 @@ label {
   color: #186680 !important;
 }
 
-.ant-modal-title > p {
+.ant-modal-title>p {
   color: #186680;
   font-size: 18px;
 }
@@ -67,6 +70,7 @@ label {
 .ant-picker-content th {
   background-color: #1f96be !important;
 }
+
 .ant-picker-content {
   width: 100% !important;
 }
@@ -89,14 +93,19 @@ label {
 .ant-input,
 .ant-select,
 .ant-picker,
-.ant-input-number-input,
-.ant-select-selector,
-.ant-input-affix-wrapper {
-  background-color: #f5fafb !important;
+.ant-input-number-input {
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgb(200, 200, 200) !important;
+}
 
-  &::placeholder {
-    color: gray;
-  }
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-input-number {
+  background-color: white;
+  border: none !important;
+
 }
 
 //CARD
@@ -119,6 +128,7 @@ th {
 .ant-switch.ant-switch-checked {
   background-color: #2cbdee;
 }
+
 .ant-switch {
   width: 60px;
 }
@@ -126,8 +136,8 @@ th {
 //BUTTON
 .ant-btn-primary {
   background-color: #26a6d1;
-  font-weight: bold;
 }
+
 //RADIO BUTTON
 .ant-radio-checked .ant-radio-inner {
   border-color: #dc3f4a;
@@ -143,6 +153,7 @@ th {
     color: white !important;
   }
 }
+
 .ant-float-btn-icon {
   color: white;
 }
@@ -166,6 +177,7 @@ th {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(0%);
   }
@@ -179,6 +191,7 @@ th {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(0%);
   }

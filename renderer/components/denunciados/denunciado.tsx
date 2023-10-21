@@ -20,6 +20,7 @@ import moment from "moment";
 import { Denunciado, dataDenunciado } from "./data";
 import { UserOutlined, CopyOutlined } from "@ant-design/icons";
 import { Usuario } from "../usuarios/data";
+import dayjs from "dayjs";
 
 //ROUTING
 
@@ -76,7 +77,6 @@ const DenunciadoModal: NextPage<Props> = (props) => {
         onCancel={() => {
           props.setOpen(false);
         }}
-        width={"90%"}
         footer={[
           <Popconfirm
             key="popconfirm"
@@ -97,14 +97,14 @@ const DenunciadoModal: NextPage<Props> = (props) => {
         {props.loaded ? (
           <Row gutter={24}>
             <Col span={24}>
-              <p style={{ color: "gray", textAlign: "start" }}>
+              <p className="info">
                 <span>Última modifcación: </span>
-                {moment(props.denunciado.ult_modificacion).format(
-                  "DD-MM-YYYY HH:mm:ss"
+                {dayjs(props.denunciado.ult_modificacion).format(
+                  "DD/MM/YYYY - HH:mm:ss"
                 )}
               </p>
             </Col>
-            <Col span={4}>
+            <Col span={24} className="mt-3">
               <Avatar
                 style={{
                   backgroundColor:
@@ -143,10 +143,10 @@ const DenunciadoModal: NextPage<Props> = (props) => {
                 icon={<CopyOutlined color="blue" />}
               ></Button>
             </Col>
-            <Col span={20}>
+            <Col span={20} offset={2}>
               <Form>
                 <Row gutter={[24, 24]}>
-                  <Col span={24} md={{ span: 8 }}>
+                  <Col span={24}>
                     <Form.Item label="Nombres: ">
                       <Input
                         name="nombre"
@@ -160,7 +160,7 @@ const DenunciadoModal: NextPage<Props> = (props) => {
                       />
                     </Form.Item>
                   </Col>
-                  <Col span={24} md={{ span: 8 }}>
+                  <Col span={24}>
                     <Form.Item label="Apellido Paterno: ">
                       <Input
                         name="nombre"
@@ -174,7 +174,7 @@ const DenunciadoModal: NextPage<Props> = (props) => {
                       />
                     </Form.Item>
                   </Col>
-                  <Col span={24} md={{ span: 8 }}>
+                  <Col span={24}>
                     <Form.Item label="Apellido Materno: ">
                       <Input
                         name="nombre"
@@ -189,7 +189,7 @@ const DenunciadoModal: NextPage<Props> = (props) => {
                     </Form.Item>
                   </Col>
 
-                  <Col span={24} md={{ span: 8 }}>
+                  <Col span={24} >
                     <Form.Item label="genero:">
                       <Radio.Group
                         value={props.denunciado.genero}
@@ -206,7 +206,7 @@ const DenunciadoModal: NextPage<Props> = (props) => {
                       </Radio.Group>
                     </Form.Item>
                   </Col>
-                  <Col span={24} md={{ span: 8 }}>
+                  <Col span={24}>
                     <Form.Item label="C.I. Denunciado: ">
                       <Input
                         name="ci"

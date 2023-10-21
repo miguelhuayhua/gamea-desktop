@@ -61,18 +61,7 @@
   background-color: #0c9ccb;
   clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
-small {
-  position: absolute;
-  line-height: 1;
-  margin: 0;
-  top: 0;
-  padding: 0;
-  right: 0;
-  display: block;
-  text-align: center;
-  width: 100%;
-  color: gray;
-}
+
 
 .titles {
   text-align: center;
@@ -84,4 +73,10 @@ small {
   text-align: center;
   color: gray;
   font-weight: 300;
+}
+
+
+
+.desarrollador{
+  color: black !important;
 }

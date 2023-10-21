@@ -207,22 +207,21 @@ const Detalles: NextPage<Props> = (props) => {
             </Dropdown>
           </Affix>
           <Row className="mt-4 rounded overflow-hidden">
-            <Col span={24}>
-              <Divider orientation="left">
-                <b>Datos Generales</b>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
+              <Divider className="fw-light" style={{ fontSize: 20 }} orientation="left">
+                Datos generales
               </Divider>
             </Col>
-
-            <Col span={24}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <Badge status="processing" text="Datos Validados" />
             </Col>
-            <Col span={24} xl={{ span: 12 }} xxl={{ span: 8 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Nombres: </p>
                 <p className="contenido">{props.datos.datosGenerales.nombre}</p>
               </div>
             </Col>
-            <Col span={24} xl={{ span: 12 }} xxl={{ span: 8 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Apellido Paterno: </p>
                 <p className="contenido">
@@ -230,7 +229,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} xl={{ span: 12 }} xxl={{ span: 8 }}>
+            <Col span={20} offset={2}>
               <div className="d-flex w-100">
                 <p className="titulo">Apellido Materno: </p>
                 <p className="contenido">
@@ -238,7 +237,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 14 }} lg={{ span: 8 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Fecha de nacimiento: </p>
                 <p className="contenido">
@@ -246,20 +245,20 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 10 }} lg={{ span: 8 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Edad: </p>
                 <p className="contenido">{props.datos.datosGenerales.edad}</p>
               </div>
             </Col>
 
-            <Col span={24} md={{ span: 8 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">C.I.: </p>
                 <p className="contenido"> {props.datos.datosGenerales.ci}</p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 16 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Estado Civil: </p>
                 <p className="contenido">
@@ -267,7 +266,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Género: </p>
                 <p className="contenido">
@@ -276,7 +275,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo"> Beneficios: </p>
                 <p className="contenido">
@@ -284,13 +283,13 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Nivel de Estudios: </p>
                 <p className="contenido"> {props.datos.datosGenerales.grado}</p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo"> Nro. de referencia: </p>
                 <p className="contenido">
@@ -298,7 +297,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Ocupación: </p>
                 <p className="contenido">
@@ -306,8 +305,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo"> Hijos: </p>
                 <p className="contenido">
@@ -330,15 +328,15 @@ const Detalles: NextPage<Props> = (props) => {
           md={{ span: 22, offset: 1 }}
         >
           <Row className="rounded overflow-hidden">
-            <Col span={24}>
-              <Divider orientation="left">
-                <b>Datos de Ubicación</b>
+            <Col span={20} offset={2}>
+              <Divider className="fw-light" style={{ fontSize: 20 }} orientation="left">
+                Datos de ubicación
               </Divider>
             </Col>
-            <Col span={24}>
+            <Col span={20} offset={2}>
               <Badge status="processing" text="Datos Validados" />
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Distrito: </p>
                 <p className="contenido">
@@ -346,7 +344,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Área: </p>
                 <p className="contenido">
@@ -359,8 +357,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Calle o avenida: </p>
                 <p className="contenido">
@@ -368,7 +365,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Tipo de domicilio: </p>
                 <p className="contenido">
@@ -377,7 +374,7 @@ const Detalles: NextPage<Props> = (props) => {
               </div>
             </Col>
 
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">N° de vivienda: </p>
                 <p className="contenido">
@@ -385,7 +382,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 10 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Zona: </p>
                 <p className="contenido">{props.datos.datosUbicacion.zona}</p>
@@ -399,15 +396,15 @@ const Detalles: NextPage<Props> = (props) => {
           md={{ span: 22, offset: 1 }}
         >
           <Row className="rounded overflow-hidden">
-            <Col span={24}>
-              <Divider orientation="left">
-                <b>Datos del denunciado</b>
+            <Col span={20} offset={2}>
+              <Divider className="fw-light" style={{ fontSize: 20 }} orientation="left">
+                Datos del denunciado
               </Divider>
             </Col>
-            <Col span={24}>
+            <Col span={20} offset={2}>
               <Badge status="processing" text="Datos Validados" />
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Nombre del denunciado: </p>
                 <p className="contenido">
@@ -415,16 +412,16 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
+
               <div className="d-flex w-100">
                 <p className="titulo">Apellido paterno: </p>
                 <p className="contenido">
-                  {" "}
                   {props.datos.datosDenunciado.paterno}
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Apellido materno: </p>
                 <p className="contenido">
@@ -432,7 +429,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24} md={{ span: 12 }}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo">Parentezco: </p>
                 <p className="contenido">
@@ -448,15 +445,16 @@ const Detalles: NextPage<Props> = (props) => {
           md={{ span: 22, offset: 1 }}
         >
           <Row className="rounded overflow-hidden">
-            <Col span={24}>
-              <Divider orientation="left">
-                <b>Descripciones</b>
+
+            <Col span={20} offset={2}>
+              <Divider className="fw-light" style={{ fontSize: 20 }} orientation="left">
+                Descripciones
               </Divider>
             </Col>
-            <Col span={24}>
+            <Col span={20} offset={2}>
               <Badge status="processing" text="Datos Validados" />
             </Col>
-            <Col span={24}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo" style={{ width: "20%" }}>
                   Descripción de los hechos:
@@ -468,7 +466,7 @@ const Detalles: NextPage<Props> = (props) => {
                 </p>
               </div>
             </Col>
-            <Col span={24}>
+            <Col span={24} lg={{ span: 20, offset: 2 }}>
               <div className="d-flex w-100">
                 <p className="titulo" style={{ width: "20%" }}>
                   Descripción de petición:

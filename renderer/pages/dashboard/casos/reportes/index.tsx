@@ -78,8 +78,8 @@ export default function Reportes() {
                 className="site-layout"
                 style={{ padding: "0 50px", position: "relative" }}
               >
-                <h1 className="text-center mt-4">REPORTES - CASOS</h1>
-                <Row className="mt-5">
+                <h1 className="text-center mt-2">REPORTES - CASOS</h1>
+                <Row >
                   <Col span={24}>
                     <h3 className="text-center my-2 my-sm-4" style={{ fontSize: "1.75em" }}>Seleccione los filtros</h3>
                   </Col>
@@ -259,7 +259,7 @@ export default function Reportes() {
           </Select.Option>
         </Select>
       </Modal>
-      <Modal okText="Filtrar" cancelText="Cancelar" title="Basic Modal" open={open4} onOk={() => {
+      <Modal okText="Filtrar" cancelText="Cancelar" title="Introduzca el adulto mayor" open={open4} onOk={() => {
         if (filtros.nombres_apellidos == "") {
           setDisplayCasos(casos);
         } else {

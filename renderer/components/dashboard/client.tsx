@@ -532,7 +532,7 @@ export default function Dashboard() {
                         >
                           <GraficoPastel
                             data={dashboardData?.acciones_x_casos.cantidad}
-                            keyTitle="name"
+                            keyTitle="Acciones"
                             keys={dashboardData?.acciones_x_casos.accion}
                           ></GraficoPastel>
                         </Card>

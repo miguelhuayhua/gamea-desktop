@@ -59,7 +59,7 @@ const Informacion = () => {
       width: 120,
       render(_, hijo) {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {hijo.id_hijo}
           </Paragraph>
         );
@@ -304,7 +304,7 @@ const Informacion = () => {
       </Row>
       <Form layout={"horizontal"} style={{ marginTop: 10 }}>
         <Row gutter={[12, 0]}>
-          <Col span={24} lg={{ span: 10 }}>
+          <Col span={24} lg={{ span: 12 }}>
             <Form.Item label="ID Hijo: ">
               <Input
                 placeholder="Introduzca el ID del hijo"
@@ -322,7 +322,7 @@ const Informacion = () => {
           </Col>
 
           <Col span={24} lg={{ span: 12 }}>
-            <Form.Item label="Filtrar por nombres y apellidos:">
+            <Form.Item label="Nombres o apellidos:">
               <Input
                 placeholder="Introduzca el nombre del hijo..."
                 onChange={(ev) => {

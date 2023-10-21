@@ -1,14 +1,12 @@
 import '@/styles/globals.scss';
 import "@/styles/adultos.scss";
 import "@/styles/adultosreportes.scss";
-import "@/styles/casos.scss";
 import "@/styles/casosaccion.scss";
 import "@/styles/casoscomponents.scss";
 import "@/styles/casosnuevocaso.scss";
 import "@/styles/casosreportes.scss";
 import "@/styles/dashboard.scss";
 import "@/styles/dashboardcomponents.scss";
-import "@/styles/denunciados.scss";
 import "@/styles/hijos.scss";
 import "@/styles/login.scss";
 import "@/styles/main.scss";

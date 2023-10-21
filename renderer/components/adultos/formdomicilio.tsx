@@ -35,23 +35,14 @@ const FormDomicilio: NextPage<Props> = (props) => {
   return (
     <>
       <Col span={24} style={{ marginBottom: 20 }}>
-        <HomeFilled
-          style={{
-            position: "absolute",
-            left: 20,
-            top: 0,
-            color: "gray",
-            fontSize: 25,
-          }}
-        />
-        <b style={{ fontSize: 16 }}>
-          EDITE LOS VALORES DEL DOMICILIO DEL ADULTO MAYOR
-        </b>
+        <h6>
+          DOMICILIO DEL ADULTO MAYOR
+        </h6>
       </Col>
-      <Col span={16}>
+      <Col span={24}>
         <Form>
           <Row gutter={24}>
-            <Col span={16} md={{ span: 14 }} xl={{ span: 8 }}>
+            <Col span={24} lg={{ span: 12 }} >
               <Form.Item className="normal-input" label="Tipo de domicilio:">
                 <Select
                   value={props.domicilio.tipo_domicilio}
@@ -77,7 +68,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={24} md={{ span: 10 }} xl={{ span: 4 }}>
+            <Col span={24} lg={{ span: 12 }}>
               <Form.Item className="normal-input" label="Distrito:">
                 <Select
                   defaultValue={props.domicilio.distrito}
@@ -97,7 +88,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 </Select>
               </Form.Item>
             </Col>
-            <Col span={24} xl={{ span: 12 }}>
+            <Col span={24}>
               <Form.Item label="Zona:">
                 <Input
                   value={props.domicilio.zona}
@@ -110,7 +101,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={24} xl={{ span: 12 }}>
+            <Col span={24}>
               <Form.Item label="Calle o Av.:">
                 <Input
                   className="normal-input"
@@ -124,11 +115,12 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={24} md={{ span: 10 }} xl={{ span: 6 }}>
+            <Col span={24} lg={{ span: 12 }}>
               <Form.Item label="N° de vivienda:">
                 <InputNumber
                   value={props.domicilio.nro_vivienda}
                   min={1}
+                  className="w-100"
                   onChange={(value) =>
                     props.setDomicilio({
                       ...props.domicilio,
@@ -138,7 +130,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={24} md={{ span: 14 }} xl={{ span: 6 }}>
+            <Col span={24} lg={{ span: 12 }}>
               <Form.Item label="Área:">
                 <Select
                   defaultValue={props.domicilio.area}
@@ -168,7 +160,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={4}>
+            <Col span={20} offset={2}>
               <Button
                 onClick={() => {
                   notification.info({
@@ -198,6 +190,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
                     }),
                   ]);
                 }}
+                className="w-100 my-4"
               >
                 Limpiar datos
               </Button>
@@ -206,7 +199,7 @@ const FormDomicilio: NextPage<Props> = (props) => {
         </Form>
       </Col>
       <Col
-        span={8}
+        span={24}
         style={{
           border: "1px solid #CCC",
           padding: 10,
@@ -293,7 +286,6 @@ const FormDomicilio: NextPage<Props> = (props) => {
                         }
                         description={
                           <p style={{ color: "#666" }}>
-                            <b>Tipo:</b>: {item.tipo_domicilio} <b> Zona: </b>
                             {item.zona}, <b>Calle: </b>
                             {item.calle_av}, <b>Nro: </b>
                             {item.nro_vivienda},<b>Distrito: </b>

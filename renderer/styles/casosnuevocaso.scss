@@ -28,6 +28,7 @@ h2 {
   align-items: center;
   justify-content: center;
   border: 1px solid rgb(147, 147, 147);
+
   &:hover {
     border: 1px solid black;
   }
@@ -39,11 +40,13 @@ h2 {
   font-size: 1.1em;
   margin: 0.5em 0.2em;
   padding: 0.5em;
+
   svg {
     font-size: 1.5em;
     color: black;
   }
 }
+
 //efectos
 .hidden {
   display: none !important;
@@ -52,12 +55,12 @@ h2 {
 
 //ESTILOS DE LA PARTE DEL COMPONENTE DE DETALLES
 .titulo {
-  background-color: #137799;
   padding: 0.5em 1em;
   width: 40%;
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
-  font-weight: bolder;
+  color: BLACK;
+  border: 0.5px solid rgb(235, 235, 235);
+
+  font-weight: bold !important;
 }
 
 .contenido {
@@ -66,14 +69,17 @@ h2 {
   font-weight: bolder;
   border: 0.5px solid rgb(235, 235, 235);
 }
+
 p {
   margin: 0 !important;
 }
+
 //animaciones y transiciones
 
 .ocultar {
   display: none;
 }
+
 .mostrar {
   animation: muestra 1s;
 }
@@ -84,6 +90,7 @@ p {
     scale: 0;
     opacity: 0;
   }
+
   100% {
     scale: 1;
     opacity: 1;
@@ -102,9 +109,11 @@ p {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }

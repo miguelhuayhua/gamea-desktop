@@ -62,7 +62,7 @@ const Informacion = () => {
       width: 120,
       render(_, usuario) {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {usuario.id_usuario}
           </Paragraph>
         );

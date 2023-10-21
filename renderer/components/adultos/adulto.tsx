@@ -85,7 +85,6 @@ const AdultoModal: NextPage<Props> = (props) => {
         onCancel={() => {
           props.setOpen(false);
         }}
-        width={"90%"}
         footer={[
           <Popconfirm
             key="popconfirm"
@@ -107,8 +106,8 @@ const AdultoModal: NextPage<Props> = (props) => {
           <Row gutter={24}>
             <Col span={24}>
               <Row>
-                <Col span={24} style={{ marginBottom: 20, textAlign: "start" }}>
-                  <p style={{ color: "gray" }}>
+                <Col span={24} >
+                  <p className="info">
                     <span>Última modifcación: </span>
                     {moment(props.adulto.ult_modificacion).format(
                       "DD-MM-YYYY HH:mm:ss"

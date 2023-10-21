@@ -32,12 +32,12 @@ import dayjs from "dayjs";
 import isBeetwen from "dayjs/plugin/isBetween";
 import DenunciadoModal from "./denunciado";
 import { AiOutlineReload, AiOutlineUserAdd } from "react-icons/ai";
-import {  pdf } from "@react-pdf/renderer";
+import { pdf } from "@react-pdf/renderer";
 import PdfDenunciado from "./pdf-listado";
 import dynamic from "next/dynamic";
 const Paragraph = dynamic(async () => await import("antd/es/typography/Paragraph"), {
   ssr: false,
-});  import { Denunciado, dataDenunciado } from "./data";
+}); import { Denunciado, dataDenunciado } from "./data";
 import { Persona, dataPersona } from "../personal/data";
 import { Usuario, dataUsuario } from "../usuarios/data";
 export const context3 = createContext({});
@@ -59,7 +59,7 @@ const Informacion = () => {
       width: 130,
       render(_, denunciado) {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {denunciado.id_denunciado}
           </Paragraph>
         );
@@ -299,6 +299,7 @@ const Informacion = () => {
                   setDenunciados(res.data);
                   setDisplayDenunciados(res.data);
                   message.info("Datos actualizados...");
+                  
                 });
             }}
           >
@@ -309,7 +310,7 @@ const Informacion = () => {
 
       <Form layout={"horizontal"} style={{ marginTop: 10 }}>
         <Row gutter={[12, 0]}>
-          <Col span={24} md={{ span: 24 }} xl={{ span: 8 }}>
+          <Col span={24} md={{ span: 12 }} >
             <Form.Item label="ID de denunciado ">
               <Input
                 placeholder="Introduzca el ID del Denunciado"
@@ -328,13 +329,13 @@ const Informacion = () => {
           <Col span={24} lg={{ span: 12 }}>
             <Form.Item label="Nombres y apellidos:">
               <Input
-                placeholder="Por favor, ingrese el nombre y apellidos a buscar"
+                placeholder="Ingrese nombres y apellidos del denunciado"
                 onChange={(ev) => {
                   setDisplayDenunciados(
                     denunciados.filter((value) => {
                       return `${value.nombres} ${value.paterno} ${value.materno}`
                         .toLocaleLowerCase()
-                        .includes(ev.target.value);
+                        .includes(ev.target.value.toLocaleLowerCase());
                     })
                   );
                 }}

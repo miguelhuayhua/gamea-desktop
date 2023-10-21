@@ -69,7 +69,7 @@ const Perfil: NextPage<Props> = (props) => {
       </Modal>
       <Content>
         <Row>
-          <Col span={20} offset={2} >
+          <Col span={16} offset={4} >
             <Form onFinish={() => {
               setOpen(true)
             }}>

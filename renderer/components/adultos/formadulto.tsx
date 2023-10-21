@@ -21,15 +21,15 @@ import moment from "moment";
 import { Adulto } from "./data";
 import dayjs from "dayjs";
 import { dias, meses } from "../casos/nuevocaso/data";
-//ROUTING
-
-//PDF
+import dynamic from "next/dynamic";
+const Paragraph = dynamic(async () => await import("antd/es/typography/Paragraph"), {
+  ssr: false,
+});
 interface Props {
   adulto: Adulto;
   setAdulto: any;
 }
 const FormAdulto: NextPage<Props> = (props) => {
-  //cambio del estado de caso
   const handleFNacimiento = (value: any) => {
     if (value) {
       let edad = -Number.parseInt(value.diff(moment.now(), "years"));
@@ -40,21 +40,20 @@ const FormAdulto: NextPage<Props> = (props) => {
       });
     }
   };
-
   return (
     <>
-      <Col span={24} lg={{ span: 16 }}>
+      <Col span={24}>
         <Form layout="horizontal">
           <Row gutter={[12, 12]}>
-            <Col span={4}>
+            <Col span={24}>
               <Avatar
                 style={{
                   backgroundColor:
                     props.adulto.genero == "Femenino" ? "#ff0080" : "#0041c8",
                   color: "white",
-                  width: 70,
-                  height: 70,
-                  fontSize: 40,
+                  width: 40,
+                  height: 40,
+                  fontSize: 20,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -62,170 +61,140 @@ const FormAdulto: NextPage<Props> = (props) => {
                 }}
                 icon={<UserOutlined />}
               ></Avatar>
-              <b>ID: </b>
-              {props.adulto.id_adulto}
-              <Button
-                style={{ marginLeft: 10 }}
-                onClick={() => {
-                  const textField = document.createElement("textarea");
-                  textField.innerText = props.adulto.id_adulto;
-                  document.body.appendChild(textField);
-                  textField.select();
-                  navigator.clipboard
-                    .writeText(props.adulto.id_adulto)
-                    .then(() => {
-                      textField.remove();
-                      message.success("¡ID - Adulto, copiado al portapapeles!");
-                    });
-                }}
-                icon={<CopyOutlined color="blue" />}
-              ></Button>
+              <Paragraph copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}  >{props.adulto.id_adulto}</Paragraph>
+
             </Col>
-            <Col span={20}>
-              <Row gutter={24}>
-                <Col span={12} lg={{ span: 8 }}>
-                  <Form.Item label="Nombres: ">
-                    <Input
-                      name="nombre"
-                      value={props.adulto.nombre}
-                      onChange={(value) =>
-                        props.setAdulto({
-                          ...props.adulto,
-                          nombre: value.target.value,
-                        })
-                      }
-                    />
-                  </Form.Item>
-                </Col>
-                <Col span={12} lg={{ span: 8 }}>
-                  <Form.Item label="Apellido paterno: ">
-                    <Input
-                      name="paterno"
-                      value={props.adulto.paterno}
-                      onChange={(value) =>
-                        props.setAdulto({
-                          ...props.adulto,
-                          paterno: value.target.value,
-                        })
-                      }
-                    />
-                  </Form.Item>
-                </Col>
-                <Col span={12} lg={{ span: 8 }}>
-                  <Form.Item label="Apellido materno: ">
-                    <Input
-                      name="materno"
-                      value={props.adulto.materno}
-                      onChange={(value) =>
-                        props.setAdulto({
-                          ...props.adulto,
-                          materno: value.target.value,
-                        })
-                      }
-                    />
-                  </Form.Item>
-                </Col>
-                <Col span={12} lg={{ span: 8 }}>
-                  <Form.Item label={"Fecha de Nacimiento:"}>
-                    <DatePicker
-                      value={dayjs(props.adulto.f_nacimiento)}
-                      placeholder="Ingrese su fecha de Nacimiento"
-                      locale={{
-
-                        lang: {
-                          locale: "es_ES", // Cambia "es_ES" al código de idioma que prefieras
-                          month: "Mes",
-                          year: "Año",
-                          ok: "Aceptar",
-                          previousMonth: "Mes anterior",
-                          dayFormat: "D",
-                          previousYear: "Año anterior",
-                          nextYear: "Año siguiente",
-                          previousDecade: "Década anterior",
-                          nextDecade: "Década siguiente",
-                          previousCentury: "Siglo anterior",
-                          nextCentury: "Siglo siguiente",
-                          shortWeekDays: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-                          shortMonths: [
-                            "Ene",
-                            "Feb",
-                            "Mar",
-                            "Abr",
-                            "May",
-                            "Jun",
-                            "Jul",
-                            "Ago",
-                            "Sep",
-                            "Oct",
-                            "Nov",
-                            "Dic",
-                          ],
-                          dateFormat: "YYYY-MM-DD",
-                          dateTimeFormat: "YYYY-MM-DD HH:mm:ss",
-                          monthFormat: "MMMM YYYY",
-                          today: "Hoy",
-                          now: "Ahora",
-                          backToToday: "Volver",
-                          clear: "Limpiar",
-                          dateSelect: "Seleccionar fecha",
-                          timeSelect: "Seleccionar hora",
-                          placeholder: "Seleccionar fecha y hora", // Agregado el placeholder,
-                          nextMonth: "Mes siguiente",
-                          decadeSelect: "Seleccionar década",
-                          monthSelect: "Seleccionar mes",
-                          yearFormat: "YYYY",
-                          yearSelect: "Seleccione año"
-                        },
-                        timePickerLocale: {
-                          placeholder: "Seleccionar hora",
-                          rangePlaceholder: ["Hora de inicio", "Hora de fin"],
-                        },
-                        // Otras propiedades del objeto locale
-
-
-                      }}
-                      onChange={handleFNacimiento}
-                    ></DatePicker>
-                  </Form.Item>
-                </Col>
-                <Col span={8} lg={{ span: 4 }}>
-                  <Form.Item
-                    label="Edad"
-                    rules={[
-                      {
-                        min: 60,
-                        message: "No puede tener una edad menor a 60...",
-                      },
-                    ]}
-                  >
-                    <InputNumber value={props.adulto.edad} min={60} />
-                  </Form.Item>
-                </Col>
-                <Col span={8} lg={{ span: 6 }}>
-                  <Form.Item
-                    label="N° de C.I."
-                    rules={[
-                      {
-                        required: true,
-                        message: "Inserte el carnet de identidad",
-                      },
-                    ]}
-                  >
-                    <InputNumber
-                      style={{ width: "90%" }}
-                      minLength={7}
-                      min={0}
-                      value={props.adulto.ci}
-                      onChange={(value) =>
-                        props.setAdulto({ ...props.adulto, ci: value })
-                      }
-                    />
-                  </Form.Item>
-                </Col>
-              </Row>
+            <Col span={24}>
+              <Form.Item label="Nombres: ">
+                <Input
+                  name="nombre"
+                  value={props.adulto.nombre}
+                  onChange={(value) =>
+                    props.setAdulto({
+                      ...props.adulto,
+                      nombre: value.target.value,
+                    })
+                  }
+                />
+              </Form.Item>
             </Col>
+            <Col span={24}>
+              <Form.Item label="Apellido paterno: ">
+                <Input
+                  name="paterno"
+                  value={props.adulto.paterno}
+                  onChange={(value) =>
+                    props.setAdulto({
+                      ...props.adulto,
+                      paterno: value.target.value,
+                    })
+                  }
+                />
+              </Form.Item>
+            </Col>
+            <Col span={24}>
+              <Form.Item label="Apellido materno: ">
+                <Input
+                  name="materno"
+                  value={props.adulto.materno}
+                  onChange={(value) =>
+                    props.setAdulto({
+                      ...props.adulto,
+                      materno: value.target.value,
+                    })
+                  }
+                />
+              </Form.Item>
+            </Col>
+            <Col span={24} >
+              <Form.Item label={"Fecha de Nacimiento:"}>
+                <DatePicker
+                  value={dayjs(props.adulto.f_nacimiento)}
+                  placeholder="Ingrese su fecha de Nacimiento"
+                  locale={
+                    {
 
-            <Col span={6} lg={{ span: 6 }}>
+                      "lang": {
+                        "placeholder": "Seleccionar fecha",
+                        "rangePlaceholder": [
+                          "Fecha inicial",
+                          "Fecha final"
+                        ],
+                        shortMonths: meses,
+                        shortWeekDays: dias,
+                        "locale": "es_ES",
+                        "today": "Hoy",
+                        "now": "Ahora",
+                        "backToToday": "Volver a hoy",
+                        "ok": "Aceptar",
+                        "clear": "Limpiar",
+                        "month": "Mes",
+                        "year": "Año",
+                        "timeSelect": "Seleccionar hora",
+                        "dateSelect": "Seleccionar fecha",
+                        "monthSelect": "Elegir un mes",
+                        "yearSelect": "Elegir un año",
+                        "decadeSelect": "Elegir una década",
+                        "yearFormat": "YYYY",
+                        "dateFormat": "D/M/YYYY",
+                        "dayFormat": "D",
+                        "dateTimeFormat": "D/M/YYYY HH:mm:ss",
+                        "monthBeforeYear": true,
+                        "previousMonth": "Mes anterior (PageUp)",
+                        "nextMonth": "Mes siguiente (PageDown)",
+                        "previousYear": "Año anterior (Control + left)",
+                        "nextYear": "Año siguiente (Control + right)",
+                        "previousDecade": "Década anterior",
+                        "nextDecade": "Década siguiente",
+                        "previousCentury": "Siglo anterior",
+                        "nextCentury": "Siglo siguiente",
+                      },
+                      "timePickerLocale": {
+                        "placeholder": "Seleccionar hora"
+                      }
+                    }
+                  }
+                  onChange={handleFNacimiento}
+                  className="w-100"
+                ></DatePicker>
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="Edad"
+                rules={[
+                  {
+                    min: 60,
+                    message: "No puede tener una edad menor a 60...",
+                  },
+                ]}
+              >
+                <InputNumber className="w-100" value={props.adulto.edad} min={60} />
+              </Form.Item>
+            </Col>
+            <Col span={12} >
+              <Form.Item
+                label="N° de C.I."
+                rules={[
+                  {
+                    required: true,
+                    message: "Inserte el carnet de identidad",
+                  },
+                ]}
+              >
+                <InputNumber
+                  style={{ width: "90%" }}
+                  minLength={7}
+                  min={0}
+                  className="w-100"
+                  value={props.adulto.ci}
+                  onChange={(value) =>
+                    props.setAdulto({ ...props.adulto, ci: value })
+                  }
+                />
+              </Form.Item>
+            </Col>
+            <Col span={24} >
               <Form.Item label="genero:">
                 <Radio.Group
                   value={props.adulto.genero}
@@ -242,8 +211,7 @@ const FormAdulto: NextPage<Props> = (props) => {
                 </Radio.Group>
               </Form.Item>
             </Col>
-
-            <Col span={9} xl={{ span: 6 }}>
+            <Col span={12}>
               <Form.Item label="Estado Civil:">
                 <Select
                   value={props.adulto.estado_civil}
@@ -267,7 +235,7 @@ const FormAdulto: NextPage<Props> = (props) => {
                 </Select>
               </Form.Item>
             </Col>
-            <Col span={9} lg={{ span: 9 }}>
+            <Col span={12} >
               <Form.Item
                 label="N° de Referencia:"
                 rules={[
@@ -290,7 +258,7 @@ const FormAdulto: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={12} lg={{ span: 8 }}>
+            <Col span={24}>
               <Form.Item
                 label="Ocupación:"
                 rules={[
@@ -311,7 +279,7 @@ const FormAdulto: NextPage<Props> = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col span={12} lg={{ span: 8 }}>
+            <Col span={24}>
               <Form.Item label="Grado de Instrucción:">
                 <Select
                   onChange={(value) =>
@@ -331,7 +299,7 @@ const FormAdulto: NextPage<Props> = (props) => {
               </Form.Item>
             </Col>
 
-            <Col span={24} lg={{ span: 12 }} xl={{ span: 8 }}>
+            <Col span={24}>
               <Form.Item label="Beneficios:">
                 <Select
                   onChange={(value) =>
@@ -356,7 +324,6 @@ const FormAdulto: NextPage<Props> = (props) => {
       </Col>
       <Col
         span={24}
-        lg={{ span: 8 }}
         style={{
           border: "1px solid #CCC",
           padding: 10,
@@ -368,12 +335,12 @@ const FormAdulto: NextPage<Props> = (props) => {
           <Col span={24}>
             {props.adulto.hijos.length == 0 ? (
               <>
-                <b>Hijos del adulto mayor:</b>
+                <h6>HIJOS DEL ADULTO MAYOR</h6>
                 <h6 style={{ color: "red" }}>La persona no tiene hijos...</h6>
               </>
             ) : (
               <>
-                <b style={{ fontSize: 16 }}>Hijos del Adulto Mayor</b>
+                <h6>HIJOS DEL ADULTO MAYOR</h6>
                 <hr />
                 <List
                   itemLayout="horizontal"

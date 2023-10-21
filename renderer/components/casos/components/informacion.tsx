@@ -46,7 +46,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 const Paragraph = dynamic(async () => await import("antd/es/typography/Paragraph"), {
   ssr: false,
-});  import { Usuario, dataUsuario } from "../../usuarios/data";
+}); import { Usuario, dataUsuario } from "../../usuarios/data";
 import isBeetwen from "dayjs/plugin/isBetween";
 
 export const context = createContext({});
@@ -79,7 +79,9 @@ const Informacion = () => {
         });
         return (
           <>
-            <Paragraph copyable>{caso.nro_caso}</Paragraph>
+            <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
+
+              {caso.nro_caso}</Paragraph>
 
             {adulto?.nombre + " " + adulto?.paterno + " " + adulto?.materno}
           </>
@@ -187,6 +189,9 @@ const Informacion = () => {
     if (id_persona && id_usuario) {
       axios.post<Usuario>(process.env.BACKEND_URL + "/usuario/get", { id_usuario: id_usuario }).then(res => {
         setUsuario(res.data);
+      });
+      axios.post<Persona>(process.env.BACKEND_URL + "/persona/get", { id_persona: id_persona }).then(res => {
+        setPersona(res.data);
       });
       axios.get<Caso[]>(process.env.BACKEND_URL + "/caso/all").then((res) => {
         setCasos(res.data);
@@ -389,6 +394,9 @@ const Informacion = () => {
                   setDisplayCasos(res.data);
                   message.info("Datos actualizados...");
                 });
+              setFiltroAccionCaso("");
+              setFiltroAdulto("");
+              setFiltroCaso("");
             }}
           >
             <AiOutlineReload fontSize={20} />
@@ -452,64 +460,52 @@ const Informacion = () => {
               </Select>
             </Form.Item>
           </Col>
-          <Col span={24} lg={{ span: 12 }} xxl={{ span: 7 }}>
+          <Col span={24} lg={{ span: 12 }} >
             <Form.Item label="Filtrar por rango de fechas:">
               <RangePicker
-             locale={{
-
-              lang: {
-                locale: "es_ES", // Cambia "es_ES" al código de idioma que prefieras
-                month: "Mes",
-                year: "Año",
-                ok: "Aceptar",
-                previousMonth: "Mes anterior",
-                dayFormat: "D",
-                previousYear: "Año anterior",
-                nextYear: "Año siguiente",
-                previousDecade: "Década anterior",
-                nextDecade: "Década siguiente",
-                previousCentury: "Siglo anterior",
-                nextCentury: "Siglo siguiente",
-                shortWeekDays: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-                shortMonths: [
-                  "Ene",
-                  "Feb",
-                  "Mar",
-                  "Abr",
-                  "May",
-                  "Jun",
-                  "Jul",
-                  "Ago",
-                  "Sep",
-                  "Oct",
-                  "Nov",
-                  "Dic",
-                ],
-                dateFormat: "YYYY-MM-DD",
-                dateTimeFormat: "YYYY-MM-DD HH:mm:ss",
-                monthFormat: "MMMM YYYY",
-                today: "Hoy",
-                now: "Ahora",
-                backToToday: "Volver",
-                clear: "Limpiar",
-                dateSelect: "Seleccionar fecha",
-                timeSelect: "Seleccionar hora",
-                placeholder: "Seleccionar fecha y hora", // Agregado el placeholder,
-                nextMonth: "Mes siguiente",
-                decadeSelect: "Seleccionar década",
-                monthSelect: "Seleccionar mes",
-                yearFormat: "YYYY",
-                yearSelect: "Seleccione año"
-              },
-              timePickerLocale: {
-                placeholder: "Seleccionar hora",
-                rangePlaceholder: ["Hora de inicio", "Hora de fin"],
-              },
-              // Otras propiedades del objeto locale
-
-
-            }}
+                locale={{
+                  "lang": {
+                    "placeholder": "Seleccionar fecha",
+                    "rangePlaceholder": [
+                      "Fecha inicial",
+                      "Fecha final"
+                    ],
+                    shortWeekDays: dias,
+                    shortMonths: meses,
+                    "locale": "es_ES",
+                    "today": "Hoy",
+                    "now": "Ahora",
+                    "backToToday": "Volver a hoy",
+                    "ok": "Aceptar",
+                    "clear": "Limpiar",
+                    "month": "Mes",
+                    "year": "Año",
+                    "timeSelect": "Seleccionar hora",
+                    "dateSelect": "Seleccionar fecha",
+                    "monthSelect": "Elegir un mes",
+                    "yearSelect": "Elegir un año",
+                    "decadeSelect": "Elegir una década",
+                    "yearFormat": "YYYY",
+                    "dateFormat": "D/M/YYYY",
+                    "dayFormat": "D",
+                    "dateTimeFormat": "D/M/YYYY HH:mm:ss",
+                    "monthBeforeYear": true,
+                    "previousMonth": "Mes anterior (PageUp)",
+                    "nextMonth": "Mes siguiente (PageDown)",
+                    "previousYear": "Año anterior (Control + left)",
+                    "nextYear": "Año siguiente (Control + right)",
+                    "previousDecade": "Década anterior",
+                    "nextDecade": "Década siguiente",
+                    "previousCentury": "Siglo anterior",
+                    "nextCentury": "Siglo siguiente",
+                  },
+                  "timePickerLocale": {
+                    "placeholder": "Seleccionar hora"
+                  }
+                }
+                }
                 onChange={handleFiltroRange}
+                className="w-100"
               />
             </Form.Item>
           </Col>

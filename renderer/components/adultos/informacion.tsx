@@ -68,7 +68,8 @@ const Informacion = () => {
       },
       render(_, adulto) {
         return (
-          <Paragraph className="center" copyable>
+
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {adulto.id_adulto}
           </Paragraph>
         );
@@ -312,7 +313,7 @@ const Informacion = () => {
 
       <Form layout={"horizontal"} style={{ marginTop: 10 }}>
         <Row gutter={[12, 0]}>
-          <Col span={24} md={{ span: 24 }} xl={{ span: 8 }}>
+          <Col span={24} lg={{ span: 12 }} >
             <Form.Item label="ID del adulto: ">
               <Input
                 placeholder="Introduzca el ID del adulto"
@@ -326,14 +327,14 @@ const Informacion = () => {
               />
             </Form.Item>
           </Col>
-          <Col span={24} lg={{ span: 8 }}>
+          <Col span={24} lg={{ span: 12 }}>
             <Form.Item label="Nombres o Apellidos: ">
               <Input
                 placeholder="Buscar por nombres o apellidos"
                 onChange={(value) => {
                   setDisplayAdultos(
                     adultos.filter((adulto) => {
-                      return (adulto.nombre + adulto.paterno + adulto.materno)
+                      return (adulto.nombre + " " + adulto.paterno + " " + adulto.materno)
                         .toLocaleLowerCase()
                         .includes(value.target.value.toLocaleLowerCase());
                     })

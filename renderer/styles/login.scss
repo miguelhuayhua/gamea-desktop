@@ -1,6 +1,7 @@
 .login-body {
   position: relative;
   width: 100%;
+
   &::after {
     position: absolute;
     z-index: -1;
@@ -22,6 +23,7 @@
   position: relative;
   border-radius: 5px;
   padding: 20px;
+
   h1 {
     position: absolute;
     font-size: 1.6em;
@@ -44,16 +46,28 @@
   }
 
 }
+
 .input-style {
   border: none;
   border-bottom: 1px solid gray;
   border-radius: 0 !important;
   background-color: white !important;
   box-shadow: 0 0 5px white;
+
+  &:placeholder-shown {
+    color: rgb(83, 83, 83) !important;
+
+  }
+
+  &::placeholder {
+    color: rgb(83, 83, 83) !important;
+  }
 }
+
 .label {
   font-weight: bold;
 }
+
 .ant-input {
   border-radius: 0 !important;
   background-color: white !important;

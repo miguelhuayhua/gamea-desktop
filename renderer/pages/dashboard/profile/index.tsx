@@ -86,6 +86,7 @@ export default function Profile() {
       label: "Datos Personales",
       children: (
         <DatosPersonales
+          usuario={usuario}
           setPersona={setPersona}
           persona={persona}
         ></DatosPersonales>

@@ -58,7 +58,7 @@ const Informacion = () => {
       width: 120,
       render: (_, persona) => {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {persona.id_persona}
           </Paragraph>
         );
@@ -70,7 +70,7 @@ const Informacion = () => {
       key: "ci",
       render: (_, persona) => {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {persona.ci}
           </Paragraph>
         );

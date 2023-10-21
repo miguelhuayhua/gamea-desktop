@@ -229,7 +229,7 @@ const AgregarPersonal = () => {
                         <Col
                           span={24}
                           md={{ span: 12 }}
-                          xxl={{ span: 10, offset: 2 }}
+                          xxl={{ span: 20, offset: 2 }}
                         >
                           <Form.Item
                             label="Celular: "
@@ -254,64 +254,53 @@ const AgregarPersonal = () => {
                             ></InputNumber>
                           </Form.Item>
                         </Col>
-                        <Col span={24} md={{ span: 12 }} xxl={{ span: 10 }}>
+                        <Col span={12} md={{ span: 12 }} xxl={{ span: 10 }}>
                           <Form.Item label={"Fecha de nacimiento"}>
                             <DatePicker
                               style={{ width: "100%" }}
-                              locale={{
+                              locale={
+                                {
 
-                                lang: {
-                                  locale: "es_ES", // Cambia "es_ES" al código de idioma que prefieras
-                                  month: "Mes",
-                                  year: "Año",
-                                  ok: "Aceptar",
-                                  previousMonth: "Mes anterior",
-                                  dayFormat: "D",
-                                  previousYear: "Año anterior",
-                                  nextYear: "Año siguiente",
-                                  previousDecade: "Década anterior",
-                                  nextDecade: "Década siguiente",
-                                  previousCentury: "Siglo anterior",
-                                  nextCentury: "Siglo siguiente",
-                                  shortWeekDays: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
-                                  shortMonths: [
-                                    "Ene",
-                                    "Feb",
-                                    "Mar",
-                                    "Abr",
-                                    "May",
-                                    "Jun",
-                                    "Jul",
-                                    "Ago",
-                                    "Sep",
-                                    "Oct",
-                                    "Nov",
-                                    "Dic",
-                                  ],
-                                  dateFormat: "YYYY-MM-DD",
-                                  dateTimeFormat: "YYYY-MM-DD HH:mm:ss",
-                                  monthFormat: "MMMM YYYY",
-                                  today: "Hoy",
-                                  now: "Ahora",
-                                  backToToday: "Volver",
-                                  clear: "Limpiar",
-                                  dateSelect: "Seleccionar fecha",
-                                  timeSelect: "Seleccionar hora",
-                                  placeholder: "Seleccionar fecha y hora", // Agregado el placeholder,
-                                  nextMonth: "Mes siguiente",
-                                  decadeSelect: "Seleccionar década",
-                                  monthSelect: "Seleccionar mes",
-                                  yearFormat: "YYYY",
-                                  yearSelect: "Seleccione año"
-                                },
-                                timePickerLocale: {
-                                  placeholder: "Seleccionar hora",
-                                  rangePlaceholder: ["Hora de inicio", "Hora de fin"],
-                                },
-                                // Otras propiedades del objeto locale
-
-
-                              }}
+                                  "lang": {
+                                    "placeholder": "Seleccionar fecha",
+                                    "rangePlaceholder": [
+                                      "Fecha inicial",
+                                      "Fecha final"
+                                    ],
+                                    shortMonths: meses,
+                                    shortWeekDays: dias,
+                                    "locale": "es_ES",
+                                    "today": "Hoy",
+                                    "now": "Ahora",
+                                    "backToToday": "Volver a hoy",
+                                    "ok": "Aceptar",
+                                    "clear": "Limpiar",
+                                    "month": "Mes",
+                                    "year": "Año",
+                                    "timeSelect": "Seleccionar hora",
+                                    "dateSelect": "Seleccionar fecha",
+                                    "monthSelect": "Elegir un mes",
+                                    "yearSelect": "Elegir un año",
+                                    "decadeSelect": "Elegir una década",
+                                    "yearFormat": "YYYY",
+                                    "dateFormat": "D/M/YYYY",
+                                    "dayFormat": "D",
+                                    "dateTimeFormat": "D/M/YYYY HH:mm:ss",
+                                    "monthBeforeYear": true,
+                                    "previousMonth": "Mes anterior (PageUp)",
+                                    "nextMonth": "Mes siguiente (PageDown)",
+                                    "previousYear": "Año anterior (Control + left)",
+                                    "nextYear": "Año siguiente (Control + right)",
+                                    "previousDecade": "Década anterior",
+                                    "nextDecade": "Década siguiente",
+                                    "previousCentury": "Siglo anterior",
+                                    "nextCentury": "Siglo siguiente",
+                                  },
+                                  "timePickerLocale": {
+                                    "placeholder": "Seleccionar hora"
+                                  }
+                                }
+                              }
                               value={dayjs(persona.f_nacimiento)}
                               onChange={(ev) => {
                                 setPersona({
@@ -335,7 +324,7 @@ const AgregarPersonal = () => {
                                 setPersona({ ...persona, cargo: ev });
                               }}
                             >
-                              {persona.cargo=='1'?<Select.Option value="1">Administrador</Select.Option>:<></>}
+                              {persona.cargo == '1' ? <Select.Option value="1">Administrador</Select.Option> : <></>}
                               <Select.Option value="2">Operador</Select.Option>
                               <Select.Option value="3">Visitante</Select.Option>
                             </Select>

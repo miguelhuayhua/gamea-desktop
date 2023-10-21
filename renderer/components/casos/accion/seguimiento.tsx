@@ -35,8 +35,9 @@ interface Props {
   persona: Persona;
   usuario: Usuario;
 }
-const router = useRouter();
 const SeguimientoOptions: NextPage<Props> = (props) => {
+  const router = useRouter();
+
   const [open, setOpen] = useState(false);
   const [seguimientos, setSeguimientos] = useState<Seguimiento[]>([]);
   //cambio del estado de caso

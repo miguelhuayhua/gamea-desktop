@@ -1,4 +1,4 @@
-import { Button, Col, DatePicker, Empty, Form, Row, Space, Table, Tooltip, notification } from "antd";
+import { Button, Col, DatePicker, Empty, Form, Row, Space, Table, Tooltip, message, notification } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { AccesoUsuario, AccionesUsuario } from "./data";
 import { NextPage } from "next";
@@ -46,7 +46,7 @@ const SeguimientoCuenta: NextPage<Props> = (props) => {
       width: 110,
       render(_, accion) {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {accion.id_accion}
           </Paragraph>
         );
@@ -87,7 +87,7 @@ const SeguimientoCuenta: NextPage<Props> = (props) => {
       width: 120,
       render(_, acceso) {
         return (
-          <Paragraph className="center" copyable>
+          <Paragraph className="center" copyable={{ tooltips: "Copiar", onCopy: () => message.success({ content: "Copiado exitosamente" }) }}>
             {acceso.id_acceso}
           </Paragraph>
         );
